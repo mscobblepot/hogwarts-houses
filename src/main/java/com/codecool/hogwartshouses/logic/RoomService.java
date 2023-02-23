@@ -1,5 +1,6 @@
 package com.codecool.hogwartshouses.logic;
 
+import com.codecool.hogwartshouses.data.Pet;
 import com.codecool.hogwartshouses.persistence.entity.Room;
 import com.codecool.hogwartshouses.persistence.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,10 +31,10 @@ public class RoomService {
     }
 
     public List<Room> findAvailable() {
-        return null;
+        return roomRepository.findByStudentIsNull();
     }
 
     public List<Room> findAvailableForRatOwners() {
-        return null;
+        return roomRepository.findByStudentIsNullOrStudentIsNotNullAndStudentPetIsNotIn(List.of(Pet.CAT, Pet.OWL));
     }
 }
