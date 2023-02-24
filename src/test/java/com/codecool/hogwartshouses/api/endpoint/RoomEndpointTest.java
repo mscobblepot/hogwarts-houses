@@ -77,4 +77,19 @@ class RoomEndpointTest {
         verify(roomService).save(room);
     }
 
+    @Test
+    void put() throws Exception {
+        Room room = new Room(House.GRYFFINDOR, null);
+        String json = """
+                {"house": "GRYFFINDOR"}
+                """;
+        when(roomService.save(room)).thenReturn(room);
+
+        mockMvc.perform(MockMvcRequestBuilders.put(url)
+                        .contentType(APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isOk());
+
+        verify(roomService).save(room);
+    }
 }
