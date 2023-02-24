@@ -103,4 +103,14 @@ class RoomEndpointTest {
 
         verify(roomService).delete(id);
     }
+
+    @Test
+    void getAvailable() throws Exception {
+        String uri = url + "/available";
+
+        mockMvc.perform(get(uri))
+                .andExpect(status().isOk());
+
+        verify(roomService).findAvailable();
+    }
 }
