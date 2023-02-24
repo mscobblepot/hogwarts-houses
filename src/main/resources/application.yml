@@ -1,1 +1,14 @@
-
+hogwarts:
+  rooms:
+    - house: GRYFFINDOR
+    - house: HUFFLEPUFF
+    - house: RAVENCLAW
+    - house: SLYTHERIN
+  students:
+    - name: Harry Potter
+      pet: OWL
+    - name: Ron Weasley
+      pet: RAT
+    - name: Hermione Granger
+      pet: CAT
+    - name: Neville Longbottom
