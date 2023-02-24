@@ -2,13 +2,14 @@ package com.codecool.hogwartshouses.api.endpoint;
 
 import com.codecool.hogwartshouses.logic.RoomService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import static org.mockito.Mockito.verify;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(RoomEndpoint.class)
 class RoomEndpointTest {
@@ -23,10 +24,10 @@ class RoomEndpointTest {
 
     @Test
     void getAll() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(url))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+        mockMvc.perform(get(url))
+                .andExpect(status().isOk());
 
-        Mockito.verify(roomService).findAll();
+        verify(roomService).findAll();
     }
 
 }
