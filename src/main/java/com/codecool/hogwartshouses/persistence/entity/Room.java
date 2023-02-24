@@ -10,6 +10,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class Room {
     @Id
     @GeneratedValue
@@ -18,4 +19,9 @@ public class Room {
     private House house;
     @OneToOne
     private Student student;
+
+    public Room(House house, Student student) {
+        this.house = house;
+        this.student = student;
+    }
 }
