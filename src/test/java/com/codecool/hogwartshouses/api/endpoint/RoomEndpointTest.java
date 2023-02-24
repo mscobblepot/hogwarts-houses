@@ -92,4 +92,15 @@ class RoomEndpointTest {
 
         verify(roomService).save(room);
     }
+
+    @Test
+    void delete() throws Exception {
+        long id = 1;
+        String uri = url + "/" + id;
+
+        mockMvc.perform(MockMvcRequestBuilders.delete(uri))
+                .andExpect(status().isOk());
+
+        verify(roomService).delete(id);
+    }
 }
