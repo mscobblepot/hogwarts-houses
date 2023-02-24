@@ -113,4 +113,14 @@ class RoomEndpointTest {
 
         verify(roomService).findAvailable();
     }
+
+    @Test
+    void getAvailableForRatOwners() throws Exception {
+        String uri = url + "/rat-owners";
+
+        mockMvc.perform(get(uri))
+                .andExpect(status().isOk());
+
+        verify(roomService).findAvailableForRatOwners();
+    }
 }
