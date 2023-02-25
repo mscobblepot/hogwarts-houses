@@ -17,4 +17,11 @@ class RoomServiceTest {
         verify(roomRepository).findAll();
     }
 
+    @Test
+    void findOne() {
+        long id = 1;
+        roomService.findOne(id);
+
+        verify(roomRepository).findById(id);
+    }
 }
