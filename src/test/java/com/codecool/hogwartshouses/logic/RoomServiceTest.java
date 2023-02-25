@@ -41,4 +41,11 @@ class RoomServiceTest {
 
         verify(roomRepository).deleteById(id);
     }
+
+    @Test
+    void findAvailable() {
+        roomService.findAvailable();
+
+        verify(roomRepository).findByStudentIsNull();
+    }
 }
