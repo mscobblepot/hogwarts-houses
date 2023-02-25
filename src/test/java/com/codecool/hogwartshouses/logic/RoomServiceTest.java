@@ -33,4 +33,12 @@ class RoomServiceTest {
 
         verify(roomRepository).save(room);
     }
+
+    @Test
+    void delete() {
+        long id = 1;
+        roomService.delete(id);
+
+        verify(roomRepository).deleteById(id);
+    }
 }
