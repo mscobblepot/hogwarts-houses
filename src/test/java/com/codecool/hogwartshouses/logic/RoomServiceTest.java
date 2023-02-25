@@ -1,5 +1,6 @@
 package com.codecool.hogwartshouses.logic;
 
+import com.codecool.hogwartshouses.persistence.entity.Room;
 import com.codecool.hogwartshouses.persistence.repository.RoomRepository;
 import org.junit.jupiter.api.Test;
 
@@ -23,5 +24,13 @@ class RoomServiceTest {
         roomService.findOne(id);
 
         verify(roomRepository).findById(id);
+    }
+
+    @Test
+    void save() {
+        Room room = Room.builder().build();
+        roomService.save(room);
+
+        verify(roomRepository).save(room);
     }
 }
